@@ -5,11 +5,11 @@ class FeatureExtractor(object):
     def __init__(self, type, parent):
         self.type = type
         if type == 'orb':
-            self.model = cv2.ORB()
+            self.model = cv2.xfeatures2d.ORB_create()#FeatureDetector_create("ORB")#cv2.ORB()
         elif type == 'sift':
-            self.model = cv2.SIFT()
+            self.model = cv2.xfeatures2d.SIFT_create()#FeatureDetector_create("SIFT")#cv2.SIFT()
         elif type == 'surf':
-            self.model = cv2.SURF()
+            self.model = cv2.xfeatures2d.SURF_create()#FeatureDetector_create("SURF")#cv2.SURF()
         else:
             self.model = None
         self.parent = parent

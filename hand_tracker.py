@@ -60,7 +60,7 @@ class HandTracker(object):
     def get_contour(self, binaryIm, checkCentroid=True):
         #binaryIm = self.get_binary_image(imhsv)
         binIm = 1*binaryIm
-        contours, hierarchy = cv2.findContours(binIm,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        _, contours, hierarchy = cv2.findContours(binIm,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
         maxArea = 0
         ci = -1
         for i,c in enumerate(contours):
@@ -98,7 +98,7 @@ class HandTracker(object):
 
     def initialize_contour(self, binaryIm):
         #binaryIm = self.get_binary_image(imhsv)
-        contours, hierarchy = cv2.findContours(binaryIm,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        _, contours, hierarchy = cv2.findContours(binaryIm, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         maxArea = 0
         ci = -1
         for i,c in enumerate(contours):
